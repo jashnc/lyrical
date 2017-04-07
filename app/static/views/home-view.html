@@ -1,1 +1,15 @@
-<p>home view</p>
+<div class="container">
+
+    <h1 class="title"> Lyrical </h1>
+    <span class="title-footer">search with feeling.</span>
+    <div class="search-bar" ng-hide="loading">
+        <input type="text" placeholder="enter song title, lyrics, or mood" style="width: 250px"></input>
+        <button ng-click="search()" class="button">Search</button>
+    </div>
+
+    <span ng-show="loading" style="margin: 10px auto">
+        <object type="image/svg+xml" data="../static/assets/rolling.svg" class="loading-svg">
+            Your browser does not support SVG
+        </object>
+    </span>
+</div>
