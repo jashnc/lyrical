@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 from textblob import TextBlob
+import json
 import crawler
 import sentiment_analysis
+
 
 app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
@@ -12,4 +14,8 @@ def home():
 def get_results():
     result = crawler.get_lyrics("jamesblunt", "staythenight")
     polarity = sentiment_analysis.get_polarity(result)
-    return polarity
+    print(polarity)
+    return json.dumps(polarity)
+
+
+# Song title aritst lyrics polarity sadness rating

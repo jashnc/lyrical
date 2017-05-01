@@ -1,5 +1,6 @@
 import re
 import urllib
+import string
 from bs4 import BeautifulSoup
 
 def get_lyrics(artist, song_title):
@@ -24,7 +25,9 @@ def get_lyrics(artist, song_title):
         lyrics = lyrics.split(down_partition)[0]
         lyrics = lyrics.replace('<br>', '').replace(
             '</br>', '').replace('</div>', '').strip()
-        return lyrics
+        lyrics = "".join(c for c in lyrics if c not in ('!','.',':','!',';'))
+        print(lyrics)
+        return unicode(lyrics, "utf-8")
     except Exception as e:
         return "Exception occurred \n" + str(e)
 
