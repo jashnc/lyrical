@@ -9,10 +9,18 @@ angular
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
-            .state('home', {
+            .state('main', {
                 url: '/',
                 templateUrl: '../static/views/home-view.html',
                 controller: 'HomeCtrl'
+            })
+            .state('searchResults', {
+                url: '/searchResults',
+                params: {
+                    result: null
+                },
+                templateUrl: '../static/views/search-results-view.html',
+                controller: 'SearchResultsCtrl'
             });
 
     }]);

@@ -1,0 +1,23 @@
+<div class="container">
+
+    <h1 class="title" ng-click = "home()"> Lyrical </h1>
+    <span class="title-footer">search with feeling.</span>
+    
+
+
+    <div class = "search-results">
+        <div class = "result" ng-repeat="result in searchResults">
+            
+            <p>{{result.title}}</p>
+            <p>{{result.artist}}</p>
+            <p> Mood - {{result.rating}} / Polarity - {{result.polarity}}</p>
+            <p ng-click = "showLyrics[$index] = !showLyrics[$index]"> > <strong>Lyrics:</strong> </p>
+            <div class = "lyrics"  ng-show = "showLyrics[$index]">
+                {{result.lyrics}}
+            </div>
+        </div>
+    
+    </div>
+
+    
+</div>

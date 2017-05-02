@@ -5,15 +5,22 @@ import crawler
 import sentiment_analysis
 
 
+
+
 app = Flask(__name__)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home(): 
     return render_template('index.html')
 
-@app.route('/api/title', methods=['POST'])
+@app.route('/api/title', methods=['GET'])
 def get_results():
-	artist = request.form['artist']
-	title = request.form['title']
+	print request
+	artist = request.args.get('artist')
+	title = request.args.get('title')
+	print artist
+	print title
 	result = crawler.get_lyrics(artist, title)
 	if isinstance(result, dict):
 		polarity = sentiment_analysis.get_polarity(result['parsed'])
@@ -32,7 +39,8 @@ def get_results():
 
 @app.route('/api/mood', methods=['POST'])
 def get_mood_results():
-	
+	mood = request.get_json().get('mood')
+	print mood
 	sad_songs = [
 		{
 			'artist': 'Sufjan Stevens',
@@ -79,7 +87,6 @@ def get_mood_results():
 		}
 	]
 
-	mood = result.form['mood'].lower()
 	song_array = sad_songs
 	if mood == 'happy':
 		song_array = happy_songs
