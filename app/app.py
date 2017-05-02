@@ -14,11 +14,11 @@ app = Flask(__name__)
 def home(): 
     return render_template('index.html')
 
-@app.route('/api/title', methods=['GET'])
+@app.route('/api', methods=['POST'])
 def get_results():
-	print request
-	artist = request.args.get('artist')
-	title = request.args.get('title')
+	print request.get_json()
+	artist = request.get_json().get('artist')
+	title = request.get_json().get('title')
 	print artist
 	print title
 	result = crawler.get_lyrics(artist, title)

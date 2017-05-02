@@ -37,7 +37,7 @@
 
         function searchSong() {
             var data = {title: $scope.title, artist: $scope.artist};
-            $http.get('/api/title', data)
+            $http.post('/api', JSON.stringify(data))
                 .then(function(response) {
                     $scope.loading = false;
                     console.log(response);
