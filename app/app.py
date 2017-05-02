@@ -33,7 +33,7 @@ def get_results():
 		}
 		print(polarity['polarity'])
 		print(polarity['rating'])
-		return json.dumps(song_obj)
+		return json.dumps([song_obj])
 	else:
 		return json.dumps({'message': 'error'})
 

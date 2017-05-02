@@ -11,9 +11,7 @@
         console.log("HomeCtrl");
         $scope.loading = false;
         $scope.searchType = "mood";
-        $scope.artist = "";
-        $scope.title = "";
-        $scope.mood = "";
+
         $scope.search = function () {
             $scope.loading = true;
             if($scope.searchType === "mood") {

@@ -1,10 +1,10 @@
 <div class="container">
 
     <h1 class="title"> Lyrical </h1>
-    <span class="title-footer">search with feeling.</span>
+    <div class="title-footer">search with feeling.</div>
     
     <div class="search-bar" ng-hide="loading">
-        <input type="text" ng-model = "$parent.mood" style="width: 250px" ng-if="searchType==='mood'">
+        <input type="text"  placeholder="mood" ng-model = "$parent.mood" style="width: 250px" ng-if="searchType==='mood'">
         <span ng-if="searchType === 'song'">
             <input type="text" ng-model = "$parent.title" placeholder="song title" style="width: 125px"></input>
             <input type="text" ng-model = "$parent.artist" placeholder="artist" style="width: 125px"></input>
@@ -16,11 +16,7 @@
         <input type = "radio" ng-model = "searchType" name = "song" value = "song">search by song title and artist</input>
     </div>
 
-    <span ng-show="loading" style="margin: 10px auto">
-        <object type="image/svg+xml" data="../static/assets/rolling.svg" class="loading-svg">
-            Your browser does not support SVG
-        </object>
-    </span>
+
 
     
 </div>
